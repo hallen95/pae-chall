@@ -42,6 +42,35 @@
             </v-list-group>
           </v-list>
         </v-card>
+        <v-card class="mx-auto">
+          <v-toolbar color="pink darken-2" dark>
+            <v-toolbar-title>Mi experiencia</v-toolbar-title>
+            <v-spacer></v-spacer>
+          </v-toolbar>
+          <v-list>
+            <v-list-group
+              v-for="item in experiences"
+              :key="item.title"
+              v-model="item.active"
+              :prepend-icon="item.action"
+              no-action
+              color="pink lighten-4"
+            >
+              <template v-slot:activator>
+                <v-list-item-content>
+                  <v-list-item-title v-text="item.title"></v-list-item-title>
+                </v-list-item-content>
+              </template>
+
+              <v-list-item v-for="child in item.items" :key="child.title">
+                <v-list-item-content>
+                  <v-list-item-title v-text="child.title"></v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list-group>
+          </v-list>
+        </v-card>
+        EXPERIENCES: {{ experiences }}
       </v-card>
     </v-col>
   </v-row>
@@ -58,12 +87,11 @@ export default {
       data: response.data,
       name: response.data.name,
       stats: response.data.stats,
+      experiences: response.data.game_indices,
       id: response.data.id,
       flavor_text: response_species.data.flavor_text_entries,
       habitat: response_species.data.habitat,
-      ability: response.data.abilities
-        .map((ability) => ability.ability.name)
-        .join(","),
+      ability: response.data.abilities,
       moves: response.data.moves,
     };
     return {
@@ -86,7 +114,14 @@ export default {
       });
       return moves;
     },
-    habitat() {},
+    experiences() {
+      let experiences = []; 
+      this.mew.experiences.map((experience) => {
+        console.log(experience.version.name);
+        experiences.push(experience.version.name);
+      });
+      return experiences;
+    },
     basicStats() {
       let basics = [];
       this.mew.stats.forEach((stat) => {
