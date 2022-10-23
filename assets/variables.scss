@@ -3,9 +3,44 @@
 // The variables you want to modify
 // $font-size-root: 20px;
 .gradient-bg-welcome {
-  background-color:#0f0e13;
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  background-color: #0f0e13;
+  background-image: radial-gradient(
+      at 0% 0%,
+      hsla(253, 16%, 7%, 1) 0,
+      transparent 50%
+    ),
+    radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+}
+
+.gradient-bg-experience {
+  background-color: #ff999e;
+  background-image: radial-gradient(
+      at 1% 20%,
+      hsla(309, 99%, 77%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 99% 89%, hsla(136, 92%, 66%, 1) 0px, transparent 50%),
+    radial-gradient(at 50% 1%, hsla(49, 94%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 8% 66%, hsla(25, 62%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 88% 20%, hsla(193, 66%, 71%, 1) 0px, transparent 50%),
+    radial-gradient(at 99% 23%, hsla(105, 80%, 68%, 1) 0px, transparent 50%),
+    radial-gradient(at 2% 17%, hsla(229, 93%, 70%, 1) 0px, transparent 50%);
+}
+
+.v-card .blue-glassmorphism {
+  background: rgb(39, 51, 89, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.v-card .eth-card {
+  background: rgba(28, 31, 106, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }

@@ -1,22 +1,26 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
-      <v-card class="logo py-4 d-flex justify-center">
+      <v-card class="gradient-bg-welcome logo py-4 d-flex justify-center">
         <MewLogo :src="mew.id" />
       </v-card>
       <v-card>
         <v-card-title class="headline">
-          #{{ mew.id }} {{ mew.name }}
+          <v-avatar size="56" class="mr-2">
+            <img alt="user" src="mew.jpg" /> </v-avatar
+          >#{{ mew.id }} {{ mew.name }}
         </v-card-title>
+        <v-divider></v-divider>
         <v-card-text>
-          <p>
-            {{ filtered_quotes[randomQuote].flavor_text }}
+          <p class="quote">
+            <span>“</span>{{ filtered_quotes[randomQuote].flavor_text
+            }}<span>”</span>
           </p>
         </v-card-text>
         <!--  NEW CARD SEPARATION -->
         <v-card class="mx-auto">
-          <v-toolbar color="pink darken-2" dark>
-            <v-toolbar-title>Sobre mí</v-toolbar-title>
+          <v-toolbar color="pink darken-2" dark class="gradient-bg-experience">
+            <v-toolbar-title class="title">Sobre mí</v-toolbar-title>
             <v-spacer></v-spacer>
           </v-toolbar>
           <v-list>
@@ -41,36 +45,68 @@
               </v-list-item>
             </v-list-group>
           </v-list>
-        </v-card>
-        <v-card class="mx-auto">
-          <v-toolbar color="pink darken-2" dark>
-            <v-toolbar-title>Mi experiencia</v-toolbar-title>
-            <v-spacer></v-spacer>
-          </v-toolbar>
-          <v-list>
-            <v-list-group
-              v-for="item in experiences"
-              :key="item.title"
-              v-model="item.active"
-              :prepend-icon="item.action"
-              no-action
-              color="pink lighten-4"
+          <v-card class="mx-auto">
+            <v-toolbar
+              color="pink darken-2"
+              dark
+              class="gradient-bg-experience"
             >
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title v-text="item.title"></v-list-item-title>
-                </v-list-item-content>
-              </template>
+              <v-toolbar-title class="title"
+                >Mi experiencia: participaciones</v-toolbar-title
+              >
+              <v-spacer></v-spacer>
+            </v-toolbar>
+            <!-- EXPERIENCES: {{ experiences }} -->
+            <!-- EXPERIENCES  -->
 
-              <v-list-item v-for="child in item.items" :key="child.title">
-                <v-list-item-content>
-                  <v-list-item-title v-text="child.title"></v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list-group>
-          </v-list>
+            <v-sheet class="mx-auto" elevation="8" max-width="800">
+              <v-slide-group v-model="model" class="pa-4" show-arrows>
+                <v-slide-item
+                  v-for="n in experiences"
+                  :key="n"
+                  v-slot="{ active, toggle }"
+                  :value="n"
+                >
+                  <!-- :color="active ? 'primary' : 'grey lighten-1'" -->
+                  <v-card
+                    class="ma-4 eth-card"
+                    height="200"
+                    width="100"
+                    @click="toggle"
+                  >
+                    <v-row
+                      class="fill-height flex-column"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-scale-transition>
+                        <v-icon
+                          v-if="active"
+                          size="20"
+                          v-text="'mdi-close-circle-outline'"
+                        ></v-icon>
+                      </v-scale-transition>
+
+                      <v-card-title>Pokemon</v-card-title>
+                      <!-- <v-card-subtitle>participación</v-card-subtitle> -->
+                      {{ n }}
+                    </v-row>
+                  </v-card>
+                </v-slide-item>
+              </v-slide-group>
+
+              <v-expand-transition>
+                <v-sheet v-if="model != null" height="200" tile>
+                  <v-row class="fill-height" align="center" justify="center">
+                    <h3 class="text-h6">
+                      Tuve una participación estelar en "Pokemon {{ model }}"
+                    </h3>
+                  </v-row>
+                </v-sheet>
+              </v-expand-transition>
+            </v-sheet>
+          </v-card>
         </v-card>
-        EXPERIENCES: {{ experiences }}
       </v-card>
     </v-col>
   </v-row>
@@ -115,11 +151,11 @@ export default {
       return moves;
     },
     experiences() {
-      let experiences = []; 
+      let experiences = [];
       this.mew.experiences.map((experience) => {
-        console.log(experience.version.name);
         experiences.push(experience.version.name);
       });
+      console.log(experiences);
       return experiences;
     },
     basicStats() {
@@ -161,6 +197,7 @@ export default {
   data() {
     return {
       data: null,
+      model: null,
     };
   },
 
@@ -175,5 +212,15 @@ export default {
 <lang scoped lang="scss">
 .headline {
   text-transform: uppercase;
+}
+.title {
+  text-shadow: 0 0 2px #000;
+}
+.quote {
+  font-style: italic;
+  text-align: center;
+  span {
+    font-size: 1.8rem;
+  }
 }
 </lang>
