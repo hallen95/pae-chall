@@ -118,7 +118,6 @@ export default {
   async asyncData({ $axios }) {
     const response = await $axios.get("/pokemon/mew");
     const response_species = await $axios.get("/pokemon-species/mew");
-
     const mew = {
       data: response.data,
       name: response.data.name,
