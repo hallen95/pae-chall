@@ -67,7 +67,6 @@
                   v-slot="{ active, toggle }"
                   :value="n"
                 >
-                  <!-- :color="active ? 'primary' : 'grey lighten-1'" -->
                   <v-card
                     class="ma-4 eth-card"
                     height="200"
@@ -94,11 +93,10 @@
                   </v-card>
                 </v-slide-item>
               </v-slide-group>
-
               <v-expand-transition>
                 <v-sheet v-if="model != null" height="200" tile>
                   <v-row class="fill-height" align="center" justify="center">
-                    <h3 class="text-h6">
+                    <h3 class="text-h6 mx-auto px-12">
                       Tuve una participación estelar en "Pokemon {{ model }}"
                     </h3>
                   </v-row>
@@ -126,7 +124,7 @@ export default {
       id: response.data.id,
       flavor_text: response_species.data.flavor_text_entries,
       habitat: response_species.data.habitat,
-      ability: response.data.abilities,
+      ability: response.data.abilities[0].ability,
       moves: response.data.moves,
     };
     return {
@@ -186,7 +184,7 @@ export default {
         },
         {
           action: "mdi-altimeter",
-          items: [{ title: this.mew.ability }],
+          items: [{ title: this.mew.ability.name }],
           title: "Ability",
         },
       ];

@@ -6,8 +6,8 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - pae',
-    title: 'pae',
+    titleTemplate: 'Mew - profile',
+    title: 'Mew Fullstack Profile',
     htmlAttrs: {
       lang: 'en'
     },
@@ -15,7 +15,78 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      {
+        hid: "facebook:title",
+        name: "facebook:title",
+        content: '# 151 Mew profile!',
+      },
+      {
+        hid: "facebook:description",
+        name: "facebook:description",
+        content: "Fullstack app with Vue/Nuxt + Express/MongoDB",
+      },
+      {
+        hid: "facebook:image",
+        name: "facebook:image",
+        content: "https://mew-profile.vercel.app/mew.jpg",
+      },
+      {
+        hid: "facebook:image:alt",
+        name: "facebook:image:alt",
+        content: 'Fullstack app with Vue/Nuxt + Express/MongoDB',
+      },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: "Fullstack app with Vue/Nuxt + Express/MongoDB",
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content:
+          "Fullstack app with Vue/Nuxt + Express/MongoDB",
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: "https://mew-profile.vercel.app/mew.jpg",
+      },
+      {
+        hid: "twitter:image:alt",
+        name: "twitter:image:alt",
+        content: "Fullstack app with Vue/Nuxt + Express/MongoDB",
+      },
+      {
+        hid: "twitter:card",
+        property: "twitter:card",
+        content: "summary_large_image"
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: 'Fullstack app with Vue/Nuxt + Express/MongoDB',
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "Fullstack app with Vue/Nuxt + Express/MongoDB",
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "https://mew-profile.vercel.app/mew.jpg",
+      },
+      {
+        hid: "og:image:secure_url",
+        property: "og:image:secure_url",
+        content: "https://mew-profile.vercel.app/mew.jpg",
+      },
+      {
+        hid: "og:image:alt",
+        property: "og:image:alt",
+        content: 'Fullstack app with Vue/Nuxt + Express/MongoDB',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
