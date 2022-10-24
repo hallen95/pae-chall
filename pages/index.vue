@@ -154,7 +154,6 @@ export default {
       this.mew.experiences.map((experience) => {
         experiences.push(experience.version.name);
       });
-      console.log(experiences);
       return experiences;
     },
     basicStats() {

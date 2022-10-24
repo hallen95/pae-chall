@@ -2,7 +2,7 @@
   <v-row justify="center" align="center">
     <v-col cols="12" sm="8" md="6">
       <!-- #FORM -->
-      <Form2 />
+      <Form />
       <!-- #COMMENTS -->
       <v-card elevation="24" class="mx-auto px-2">
         <v-system-bar lights-out></v-system-bar>
