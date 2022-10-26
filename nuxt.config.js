@@ -108,8 +108,8 @@ export default {
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
-  router: {
-    middleware: 'skeleton'
+  loading: {
+    color: '#c2185b'
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxtjs/axios'],

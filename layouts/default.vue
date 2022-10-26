@@ -40,12 +40,7 @@
     </v-app-bar>
     <v-main class="gradient-bg-welcome">
       <v-container>
-        <div class="skeleton" v-if="skeletonLoading">
-          <Skeleton />
-        </div>
-        <div class="main" v-if="!skeletonLoading">
           <Nuxt />
-        </div>
       </v-container>
     </v-main>
     <v-footer :absolute="!fixed" app>
@@ -55,8 +50,6 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-
 export default {
   name: "DefaultLayout",
   data() {
@@ -81,11 +74,6 @@ export default {
       rightDrawer: false,
       title: "Mew",
     };
-  },
-  computed: {
-    ...mapState("ui", {
-      skeletonLoading: (state) => state.skeletonLoading,
-    }),
   },
 };
 </script>
